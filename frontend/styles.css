@@ -1,0 +1,188 @@
+@font-face {
+    font-family: "Dimkin";
+    src: url("./fonts/Dimkin-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Dimkin";
+    src: url("./fonts/Dimkin-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Politburo";
+    src: url("./fonts/Politburo.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    padding: 100px 0 0;
+    margin: 0;
+    font-family: "Dimkin";
+    background-color: #F1F1F1;
+}
+
+header {
+    background-color: #FFF;
+    border-bottom: 1px solid #0000004D;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+.top-bar {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+
+}
+
+.logo {
+    height: 40px;
+    margin-right: 20px;
+}
+
+.top-nav {
+    display: flex;
+    height: 100%;
+    margin-top: 5px;
+}
+
+.top-nav a {
+    text-decoration: none;
+    color: #333;
+    margin-left: 20px;
+    font-size: 35px;
+}
+
+.bottom-bar {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.bottom-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bottom-nav a {
+    text-decoration: none;
+    color: #333;
+    margin: 0 20px;
+    font-size: 35px;
+}
+
+.bottom-nav a.active {
+    border-bottom: 3px solid #EE7200;
+    padding-bottom: 0px;
+}
+
+.separator {
+    border: none;
+    height: 1px;
+    background-color: #0000004D;
+    margin: 0 20px;
+}
+
+.category {
+    margin: 20px;
+}
+
+.category h2 {
+    font-size: 48px;
+    font-family: "Politburo";
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 20px;
+    width: 225px;
+    height: 325px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.card-image img {
+    display: block;
+    margin: 0 auto;
+    margin-top: 30px;
+    max-width: 100%;
+    height: auto;
+}
+
+.card-content {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.card-rating {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.card-rating img {
+    width: 25px;
+}
+
+.card-rating span {
+    margin-right: 7px;
+    margin-top: 5px;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.card-content p {
+    font-weight: 400;
+    font-size: 20px;
+    margin: 0;
+    padding: 0px 0;
+}
+
+.card-content h3 {
+    font-weight: 400;
+    font-size: 30px;
+    margin: 0;
+    padding: 0px 0;
+}
+
+.dish-price {
+    color: #000000;
+    font-family: "Moul";
+    font-size: 27px;
+    position: absolute;
+    bottom: 12px;
+    left: 20px;
+}
+
+.btn-add-to-cart {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: #EE7200;
+    color: white;
+    font-family: "Dimkin";
+    font-size: 28px;
+    border: none;
+    border-radius: 5px;
+    padding: 3px 10px;
+    cursor: pointer;
+}
