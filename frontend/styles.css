@@ -1,20 +1,13 @@
 @font-face {
-    font-family: "Dimkin";
-    src: url("./fonts/Dimkin-Regular.ttf") format("truetype");
+    font-family: "Cygre";
+    src: url("./fonts/cygre_default/Cygre-Regular.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: "Dimkin";
-    src: url("./fonts/Dimkin-Bold.ttf") format("truetype");
-    font-weight: bold;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "Politburo";
-    src: url("./fonts/Politburo.otf") format("opentype");
+    font-family: "MursGothic";
+    src: url("./fonts/murs_gothic/WEB/MursGothic-WideDark.woff") format("woff");
     font-weight: normal;
     font-style: normal;
 }
@@ -23,7 +16,7 @@
 body {
     padding: 120px;
     margin: 0;
-    font-family: "Dimkin";
+    font-family: "Cygre";
     background-color: #F1F1F1;
 }
 
@@ -59,7 +52,7 @@ header {
     text-decoration: none;
     color: #333;
     margin-left: 20px;
-    font-size: 35px;
+    font-size: 25px;
 }
 
 .bottom-bar {
@@ -78,7 +71,7 @@ header {
     text-decoration: none;
     color: #333;
     margin: 0 20px;
-    font-size: 35px;
+    font-size: 25px;
 }
 
 .bottom-nav a.active {
@@ -104,7 +97,7 @@ header {
 
 .category h2 {
     font-size: 48px;
-    font-family: "Politburo";
+    font-family: "MursGothic";
 }
 
 .products {
@@ -158,37 +151,184 @@ header {
 
 .card-content p {
     font-weight: 400;
-    font-size: 20px;
+    font-size: 17px;
     margin: 0;
     padding: 0px 0;
 }
 
 .card-content h3 {
     font-weight: 400;
-    font-size: 30px;
+    font-size: 25px;
     margin: 0;
     padding: 0px 0;
 }
 
 .dish-price {
     color: #000000;
-    font-family: "Moul";
+    font-family: "MursGothic";
     font-size: 27px;
     position: absolute;
-    bottom: 12px;
+    bottom: 15px;
     left: 20px;
 }
 
 .btn-add-to-cart {
     position: absolute;
-    bottom: 20px;
+    bottom: 12px;
     right: 20px;
     background-color: #EE7200;
     color: white;
-    font-family: "Dimkin";
-    font-size: 28px;
+    font-family: "Cygre";
+    font-size: 20px;
     border: none;
     border-radius: 5px;
     padding: 3px 10px;
     cursor: pointer;
+}
+
+.modal {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    background-color: #fefefe;
+    margin: auto;
+    border: 1px solid #888;
+    width: 500px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 20px;
+    position: relative;
+}
+
+.modal-content h2 {
+    text-align: center;
+    margin-top: 0;
+    font-family: "MursGothic";
+    font-size: 48px;
+}
+
+.close {
+    position: absolute;
+    top: 0px;
+    right: 20px;
+    color: #aaa;
+    font-size: 48px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.container {
+    position: relative;
+    padding-left: 10px;
+    margin-bottom: 20px;
+}
+
+.container label {
+    padding-bottom: 1px;
+    font-size: 14px;
+    display: block;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 4px;
+    font-family: "Cygre";
+    font-size: 15px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background-color: #e7e7e7;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    background-color: #EE7200;
+    color: white;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 48%;
+    font-family: "Cygre";
+    font-size: 15px;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.psw {
+    text-align: left;
+    font-size: 14px;
+    margin-top: 1px;
+    font-family: "Cygre";
+}
+
+.psw a {
+    color: #EE7200;
+}
+
+.psw a:hover {
+    text-decoration: underline;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+
+.login-btn {
+    background-color: #EE7200;
+    color: white;
+    width: 30%;
+    font-family: "Cygre";
+    font-size: 20px;
+}
+
+.register-btn {
+    background-color: #EE7200;
+    color: white;
+    width: 65%;
+    font-family: "Cygre";
+    font-size: 20px;
+}
+
+.modal-footer-register {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.success-message {
+    color: #EE7200;
+    text-align: center;
+    display: none;
+    margin: 10px 0;
 }
