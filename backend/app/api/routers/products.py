@@ -1,7 +1,7 @@
-from app.api.deps import SessionDep
+from app.api.deps import CurrentUser, SessionDep
 from app.models import CategoriesOrm, CategoriesProductsOrm, ProductsOrm
 from app.schemas.items import CategoryModel, ProductModel
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
 from sqlalchemy import select
 
 router = APIRouter()
@@ -29,3 +29,14 @@ async def read_categories_with_products(session: SessionDep) -> list[CategoryMod
         )
         categories_with_products.append(category_data)
     return categories_with_products
+
+
+@router.get("/product/{product_id}", response_model=ProductModel)
+async def get_product(
+    session: SessionDep, current_user: CurrentUser, product_id: int
+) -> ProductModel | None:
+    query = select(ProductsOrm).filter_by(id=product_id)
+    product = (await session.execute(query)).scalars().one_or_none()
+    if not product:
+        raise HTTPException(status_code=404, detail="Product not found")
+    return product
