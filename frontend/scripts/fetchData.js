@@ -71,7 +71,30 @@ function createProductCard(product) {
       <button class="btn-add-to-cart">В корзину</button>
     </div>
   `;
+    const addToCartButton = card.querySelector('.btn-add-to-cart');
+    addToCartButton.onclick = () => handleAddToCartClick(product);
     return card;
+}
+
+function handleAddToCartClick(product) {
+    const accessToken = localStorage.getItem('accessToken');
+    if (!accessToken || isTokenExpired(accessToken)) {
+        // Если пользователь не авторизован или токен истек, показываем модальное окно входа
+        showModal();
+    } else {
+        // Пользователь авторизован, логика добавления в корзину
+        console.log('Добавляем в корзину продукт:', product.name);
+        // Здесь должна быть реализация добавления товара в корзину
+    }
+}
+
+function showModal() {
+    const modal = document.getElementById('modal'); // Используй реальный ID модального окна
+    if (modal) {
+        modal.style.display = 'flex'; // Или другой способ показа, зависящий от твоей реализации
+        document.getElementById("loginForm").style.display = "block";
+        document.getElementById("registerForm").style.display = "none";
+    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {

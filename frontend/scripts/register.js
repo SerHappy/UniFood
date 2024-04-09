@@ -12,7 +12,7 @@ document.getElementById('registerForm').addEventListener('submit', function (e) 
     const data = { email, password };
 
     // Отправляем запрос на регистрацию
-    fetch('http://127.0.0.1:8000/api/v1/registration/registration', {
+    fetch('http://127.0.0.1:8000/api/v1/registration', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

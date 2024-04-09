@@ -1,3 +1,15 @@
+document.addEventListener('DOMContentLoaded', () => {
+    // Поиск всех ссылок в навигационной панели
+    document.querySelectorAll('.top-nav a').forEach(link => {
+        link.addEventListener('click', (e) => {
+            // Если ссылка имеет href="#", предотвращаем скролл вверх
+            if (link.getAttribute('href') === '#') {
+                e.preventDefault();
+            }
+        });
+    });
+});
+
 function setupModal() {
     console.log("Setting up modal...");
     const modal = document.getElementById('modal');
