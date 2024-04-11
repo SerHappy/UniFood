@@ -17,3 +17,4 @@ class ProductModel(BaseModel):
     weight: int | None = None
     photo_url: str
     rating: float | None = None
+

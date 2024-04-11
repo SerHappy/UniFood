@@ -28,7 +28,7 @@ async def send_email(
     email_message = MIMEMultipart("alternative")
     email_message["From"] = settings.EMAILS_FROM_EMAIL
     email_message["To"] = (
-        settings.EMAIL_TEST_USER if settings.EMAILS_FROM_NAME else email_to
+        settings.EMAIL_TEST_USER if settings.EMAIL_TEST_USER else email_to
     )
     email_message["Subject"] = subject
 

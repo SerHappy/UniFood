@@ -1,5 +1,5 @@
 from sqlalchemy import VARCHAR
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from .base import Base
 
@@ -17,3 +17,5 @@ class ProductsOrm(Base):
     photo_url: Mapped[str] = mapped_column(VARCHAR(255))
     rating: Mapped[float | None]
     is_in_stock: Mapped[bool] = mapped_column(default=True)
+
+    cart_items = relationship("CartItemsOrm", back_populates="product")

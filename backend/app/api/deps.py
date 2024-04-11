@@ -28,6 +28,9 @@ TokenDep = Annotated[str, Depends(reusable_oauth2)]
 
 
 async def get_current_user(session: SessionDep, token: TokenDep) -> UsersOrm:
+    invalid_credentials = HTTPException(
+        status_code=401, detail="Could not validate credentials"
+    )
     try:
         payload = jwt.decode(
             token,
@@ -35,15 +38,13 @@ async def get_current_user(session: SessionDep, token: TokenDep) -> UsersOrm:
             algorithms=[security.ALGORITHM],
         )
         token_data = AccessTokenPayload(**payload)
-    except (JWTError, ValidationError) as e:
-        raise HTTPException(
-            status_code=403, detail=f"Could not validate credentials {e}"
-        )
+    except (JWTError, ValidationError):
+        raise invalid_credentials
     user = await session.get(UsersOrm, token_data.sub)
     if not user:
-        raise HTTPException(status_code=404, detail="User not found")
+        raise invalid_credentials
     if not user.is_verified:
-        raise HTTPException(status_code=400, detail="Not verified")
+        raise invalid_credentials
     return user
 
 
