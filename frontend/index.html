@@ -15,6 +15,7 @@
           <img src="./images/logo.png" alt="UniFood Logo" class="logo">
         </div>
         <nav class="top-nav">
+          <a href="#" id="MenuLink">Меню</a>
           <a href="#">Очередь заказов</a>
           <a href="#">Акции</a>
           <a href="#" id="modalTrigger">Вход</a>
@@ -26,6 +27,100 @@
         </nav>
     </div>
   </header>
+<div id="dynamicContent">
+<div class="order-page">
+  <table class="order-items">
+    <thead>
+      <tr>
+        <th class="image-col"></th> <!-- Пустой заголовок для изображений -->
+        <th class="name-col">Наименование</th>
+        <th class="price-col">Цена</th>
+        <th class="quantity-col">Количество</th>
+        <th class="total-col">Стоимость</th>
+        <th class="delete-col"></th> <!-- Пустой заголовок для иконки удаления -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="item">
+        <td><img src="./images/Бургер.png" alt="Бургер"></td>
+        <td class="name">
+            <span class="name-title">Бургер куриный</span>
+            <span class="name-weight">250гр</span>
+        </td>
+        <td class="price">190₽</td>
+        <td>
+            <div class="quantity-capsule">
+                <button class="quantity-btn minus">-</button>
+                <span class="quantity-number">2</span>
+                <button class="quantity-btn plus">+</button>
+            </div>
+        </td>
+        <td class="total">380₽</td>
+        <td class="delete"><button class="delete-btn">🗑</button></td>
+      </tr>
+      <tr class="item">
+        <td><img src="./images/Бургер.png" alt="Бургер"></td>
+        <td class="name">
+            <span class="name-title">Бургер куриный</span>
+            <span class="name-weight">250гр</span>
+        </td>
+        <td class="price">190₽</td>
+        <td>
+            <div class="quantity-capsule">
+                <button class="quantity-btn minus">-</button>
+                <span class="quantity-number">2</span>
+                <button class="quantity-btn plus">+</button>
+            </div>
+        </td>
+        <td class="total">380₽</td>
+        <td class="delete"><button class="delete-btn">🗑</button></td>
+      </tr>
+      <!-- Другие позиции -->
+    </tbody>
+    <tfoot>
+      <tr class="summary no-border">
+        <td colspan="4">Итого</td>
+        <td colspan="1">999₽</td>
+      </tr>
+      <tr class="summary no-border">
+        <td colspan="4">Скидка</td>
+        <td colspan="1">999₽</td>
+      </tr>
+      <tr class="summary no-border">
+        <td colspan="4">К оплате</td>
+        <td colspan="1">999₽</td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <div class="order-params">
+  <h2>Параметры заказа</h2>
+  <div class="button-group">
+    <button class="toggle-button active">На месте</button>
+    <button class="toggle-button">С собой</button>
+  </div>
+  <div class="param">
+    <label for="preparation">Приготовить</label>
+    <select id="preparation" class="preparation-select">
+      <option>Как можно скорее</option>
+      <option>Ко времени</option>
+    </select>
+  </div>
+  <div class="param time-select" style="display: none;">
+    <label for="time">Выберите время</label>
+    <select id="time">
+      <!-- Заполнить интервалами времени -->
+    </select>
+  </div>
+  <label for="comments">Комментарий</label>
+  <textarea id="comments" rows="4"></textarea>
+  <button class="submit">Оформить заказ</button>
+</div>
+
+</div>
+
+
+</div>
 <div id="modal" class="modal">
     <form id="loginForm" class="modal-content" method="post" autocomplete="off">
         <span class="close" aria-label="Закрыть">&times;</span>
@@ -68,7 +163,8 @@
 <script src="scripts/login.js"></script>
 <script src="scripts/register.js"></script>
 <script src="scripts/modal.js"></script>
-<script src="scripts/fetchData.js"></script>
+<!-- <script src="scripts/products.js"></script> -->
 <script src="scripts/navigation.js"></script>
+<script src="scripts/cart.js"></script>
 </body>
 </html>

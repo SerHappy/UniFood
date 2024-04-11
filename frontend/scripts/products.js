@@ -8,7 +8,9 @@ function fetchData() {
 
 function renderCategories(categories) {
     const navBar = document.querySelector('.bottom-nav');
-    const content = document.querySelector('body');
+    const content = document.querySelector("#dynamicContent");
+    content.innerHTML = '';
+    navBar.innerHTML = '';
 
     categories.forEach(category => {
         const link = document.createElement('a');
@@ -101,4 +103,9 @@ document.addEventListener('DOMContentLoaded', () => {
     setupModal();
     fetchData();
     window.addEventListener('scroll', updateActiveSection);
+    document.getElementById('MenuLink').addEventListener('click', (e) => {
+        console.log('Клик по ссылке "Меню"');
+        e.preventDefault();
+        fetchData();
+    });
 });

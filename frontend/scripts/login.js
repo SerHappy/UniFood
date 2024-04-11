@@ -63,10 +63,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
 function updateNavigationBar() {
     const navBar = document.querySelector('.top-nav');
     navBar.innerHTML = `
+        <a href="#" id="MenuLink">Меню</a>
         <a href="#">Очередь заказов</a>
         <a href="#">Акции</a>
         <a href="#">Профиль</a>
-        <a href="#">Корзина</a>
+        <a href="#" id="cartLink">Корзина</a>
     `;
 }
 

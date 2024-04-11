@@ -14,7 +14,7 @@
 
 
 body {
-    padding: 120px;
+    padding-top: 120px;
     margin: 0;
     font-family: "Cygre";
     background-color: #F1F1F1;
@@ -331,4 +331,278 @@ button {
     text-align: center;
     display: none;
     margin: 10px 0;
+}
+
+.order-page {
+    display: flex;
+    justify-content: space-between;
+
+    /* max-width: 1200px; */
+    /* Можно задать максимальную ширину для всей страницы */
+    /* margin: auto; */
+    /* Центрируем страницу */
+    padding: 20px;
+    gap: 0px;
+    /* Добавляем немного пространства между элементами */
+}
+
+.order-items {
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* border: 1px solid #0000004D; */
+    background-color: #fefefe;
+    width: 70%;
+    margin-bottom: 20px;
+    border-collapse: separate;
+    border-spacing: 0;
+        /* Убираем пространство между ячейками */
+}
+
+.order-items th,
+.order-items td {
+    text-align: center;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+.order-items th {
+    border-bottom: none;
+}
+
+.order-items td.name,
+.order-items th.name-col {
+    text-align: left;
+}
+
+.order-items th.image-col,
+.order-items td.image-col {
+    width: 10%;
+}
+
+.order-items th.name-col {
+    width: 50%;
+}
+
+.order-items th.price-col,
+.order-items th.quantity-col,
+.order-items th.total-col,
+.order-items th.delete-col {
+    width: 10%;
+}
+
+.order-items img {
+    width: 100px;
+    height: auto;
+}
+
+.order-items .delete-btn {
+    font-size: 1em;
+    color: #333;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.summary td {
+    font-weight: bold;
+    text-align: right;
+}
+
+.summary td:first-child {
+    text-align: left;
+}
+
+
+.order-params {
+    width: 33%;
+    background-color: #fefefe;
+}
+
+.name-title {
+    display: block;
+    /* или font-weight: bold; если хочешь жирный шрифт */
+    font-size: 1.1em;
+    /* Увеличиваем шрифт для названия */
+}
+
+.name-weight {
+    display: block;
+    color: #666;
+    /* Более светлый цвет для граммовки */
+    font-size: 0.9em;
+    /* Меньший шрифт для граммовки */
+}
+
+.name-title {
+    display: block;
+    font-size: 1.1em;
+    /* Размер шрифта для названия */
+    /* другие стили для названия */
+}
+
+.name-weight {
+    display: block;
+    color: #666;
+    font-size: 0.9em;
+    margin-top: 2px;
+}
+
+.quantity-capsule {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 20px;
+    background-color: #EE7200;
+    /* Дает эффект капсулы */
+    padding: 2px 10px;
+}
+
+.quantity-btn {
+    background: none;
+    border: none;
+    padding: 5px;
+    margin: 0;
+    /* Убираем маржин, если он был */
+    cursor: pointer;
+    font-size: 1em;
+    color: white;
+}
+
+.quantity-divider {
+    padding: 0 8px;
+    /* Добавляем отступы вокруг разделителя */
+    color: #ccc;
+}
+
+.quantity-number {
+    min-width: 20px;
+    /* Обеспечивает минимальную ширину для числа, чтобы оно не сжималось */
+    text-align: center;
+    color: white
+}
+
+/* Остальные стили остаются без изменений */
+
+.summary td:first-child {
+    text-align: left;
+    padding-left: 10px;
+    /* Задает расстояние от левого края таблицы */
+}
+
+.summary td:last-child {
+    text-align: right;
+    padding-right: 30px;
+    /* Задает расстояние от правого края таблицы */
+}
+
+/* Убедимся, что у .no-border нет нижней границы */
+.no-border td {
+    border-bottom: none;
+}
+
+.order-params {
+    width: 25%;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.order-params h2 {
+    margin-top: 0;
+}
+
+.button-group {
+    display: flex;
+    margin-bottom: 20px;
+    /* Граница для всей группы кнопок */
+    border-radius: 20px;
+    /* Скругление для эффекта капсулы */
+    overflow: hidden;
+    /* Предотвращает выход содержимого за рамки скругленных углов */
+}
+
+.toggle-button {
+    flex: 1;
+    /* Каждая кнопка занимает равное пространство */
+    padding: 10px 20px;
+    background: #fff;
+    border: none;
+    /* Убираем границы внутри капсулы */
+    cursor: pointer;
+    outline: none;
+    /* Убираем контур при фокусе */
+    position: relative;
+        /* Для корректного позиционирования псевдоэлементов */
+}
+
+.toggle-button.active,
+.toggle-button:hover {
+    background-color: #EE7200;
+    /* Активный/наведенный стиль */
+    color: white;
+}
+
+.toggle-button:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 25%;
+    /* Начало псевдоэлемента, создающего разрыв */
+    bottom: 25%;
+    /* Конец псевдоэлемента, создающего разрыв */
+    width: 2px;
+    /* Ширина разделителя */
+    background-color: #ccc;
+    /* Цвет разделителя */
+}
+
+/* Стили для первой кнопки (слева) */
+.toggle-button:first-child {
+    border-radius: 20px 0 0 20px;
+    /* Скругление только слева */
+}
+
+/* Стили для последней кнопки (справа) */
+.toggle-button:last-child {
+    border-radius: 0 20px 20px 0;
+    /* Скругление только справа */
+}
+
+.param {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.param label {
+    margin-right: 100px;
+}
+
+.preparation-select,
+.time-select select {
+    width: 95%;
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+
+textarea {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.submit {
+    width: 80%;
+    padding: 10px 0;
+    margin: auto;
+    /* Центрирование кнопки */
+    display: block;
+    /* Чтобы margin:auto сработал */
+    background-color: #EE7200;
+    border: none;
+    color: white;
+    cursor: pointer;
 }
