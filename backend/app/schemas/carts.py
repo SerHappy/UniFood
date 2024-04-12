@@ -6,6 +6,9 @@ from .items import ProductModel
 class UserCart(BaseModel):
     id: int
     items: list["CartItem"]
+    total: int
+    discount: int
+    to_pay: int
 
 
 class CartItem(BaseModel):

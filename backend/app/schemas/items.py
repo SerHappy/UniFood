@@ -17,4 +17,11 @@ class ProductModel(BaseModel):
     weight: int | None = None
     photo_url: str
     rating: float | None = None
+    in_cart: int | None = None
 
+
+class ProductInfo(BaseModel):
+    id: int
+    name: str
+    composition: str | None
+    description: str | None
