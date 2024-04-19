@@ -25,16 +25,15 @@ TokenDep = Annotated[str, Depends(reusable_oauth2)]
 OptionalTokenDep = Annotated[str | None, Depends(optional_oauth2)]
 
 
-async def get_db() -> Generator[AsyncSession, None, None]:  # type: ignore
+async def get_db() -> Generator[AsyncSession, None, None]:
     """
-    Описание функции здесь.
+    Получает сессию базы данных для выполнения запросов.
 
-    Args:
-        param1 (int): Описание первого параметра.
-        param2 (str): Описание второго параметра.
+    Это асинхронный контекстный менеджер, который открывает сессию,
+    предоставляет её в качестве генератора, и закрывает после завершения операций.
 
-    Returns:
-        bool: Описание возвращаемого значения.
+    :return: Экземпляр сессии SQLAlchemy для асинхронного использования
+    :rtype: Generator[AsyncSession, None, None]
     """
     async with Session() as session:
         yield session

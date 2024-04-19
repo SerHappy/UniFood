@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>app.models package &#8212; Unifood  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=12dfc556" />
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="app.models.base module" href="app.models.base.html" />
+    <link rel="prev" title="app.db.crud module" href="app.db.crud.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="app-models-package">
+<h1>app.models package<a class="headerlink" href="#app-models-package" title="Link to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="app.models.base.html">app.models.base module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="app.models.base.html#app.models.base.Base"><code class="docutils literal notranslate"><span class="pre">Base</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="app.models.base.html#app.models.base.Base.metadata"><code class="docutils literal notranslate"><span class="pre">Base.metadata</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="app.models.base.html#app.models.base.Base.registry"><code class="docutils literal notranslate"><span class="pre">Base.registry</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="app.models.cart_items.html">app.models.cart_items module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="app.models.cart_items.html#app.models.cart_items.CartItemsOrm"><code class="docutils literal notranslate"><span class="pre">CartItemsOrm</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="app.models.cart_items.html#app.models.cart_items.CartItemsOrm.id"><code class="docutils literal notranslate"><span class="pre">CartItemsOrm.id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="app.models.cart_items.html#app.models.cart_items.CartItemsOrm.product"><code class="docutils literal notranslate"><span class="pre">CartItemsOrm.product</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="app.models.cart_items.html#app.models.cart_items.CartItemsOrm.product_id"><code class="docutils literal notranslate"><span class="pre">CartItemsOrm.product_id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="app.models.cart_items.html#app.models.cart_items.CartItemsOrm.quantity"><code class="docutils literal notranslate"><span class="pre">CartItemsOrm.quantity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="app.models.cart_items.html#app.models.cart_items.CartItemsOrm.user_id"><code class="docutils literal notranslate"><span class="pre">CartItemsOrm.user_id</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="app.models.categories.html">app.models.categories module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="app.models.categories.html#app.models.categories.CategoriesOrm"><code class="docutils literal notranslate"><span class="pre">CategoriesOrm</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="app.models.categories.html#app.models.categories.CategoriesOrm.id"><code class="docutils literal notranslate"><span class="pre">CategoriesOrm.id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="app.models.categories.html#app.models.categories.CategoriesOrm.name"><code class="docutils literal notranslate"><span class="pre">CategoriesOrm.name</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="app.models.categories_products.html">app.models.categories_products module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="app.models.categories_products.html#app.models.categories_products.CategoriesProductsOrm"><code class="docutils literal notranslate"><span class="pre">CategoriesProductsOrm</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="app.models.categories_products.html#app.models.categories_products.CategoriesProductsOrm.category_id"><code class="docutils literal notranslate"><span class="pre">CategoriesProductsOrm.category_id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="app.models.categories_products.html#app.models.categories_products.CategoriesProductsOrm.id"><code class="docutils literal notranslate"><span class="pre">CategoriesProductsOrm.id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="app.models.categories_products.html#app.models.categories_products.CategoriesProductsOrm.product_id"><code class="docutils literal notranslate"><span class="pre">CategoriesProductsOrm.product_id</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="app.models.products.html">app.models.products module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="app.models.products.html#app.models.products.ProductsOrm"><code class="docutils literal notranslate"><span class="pre">ProductsOrm</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="app.models.products.html#app.models.products.ProductsOrm.cart_items"><code class="docutils literal notranslate"><span class="pre">ProductsOrm.cart_items</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="app.models.products.html#app.models.products.ProductsOrm.composition"><code class="docutils literal notranslate"><span class="pre">ProductsOrm.composition</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="app.models.products.html#app.models.products.ProductsOrm.description"><code class="docutils literal notranslate"><span class="pre">ProductsOrm.description</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="app.models.products.html#app.models.products.ProductsOrm.id"><code class="docutils literal notranslate"><span class="pre">ProductsOrm.id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="app.models.products.html#app.models.products.ProductsOrm.is_in_stock"><code class="docutils literal notranslate"><span class="pre">ProductsOrm.is_in_stock</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="app.models.products.html#app.models.products.ProductsOrm.name"><code class="docutils literal notranslate"><span class="pre">ProductsOrm.name</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="app.models.products.html#app.models.products.ProductsOrm.photo_url"><code class="docutils literal notranslate"><span class="pre">ProductsOrm.photo_url</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="app.models.products.html#app.models.products.ProductsOrm.price"><code class="docutils literal notranslate"><span class="pre">ProductsOrm.price</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="app.models.products.html#app.models.products.ProductsOrm.rating"><code class="docutils literal notranslate"><span class="pre">ProductsOrm.rating</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="app.models.products.html#app.models.products.ProductsOrm.weight"><code class="docutils literal notranslate"><span class="pre">ProductsOrm.weight</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="app.models.users.html">app.models.users module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="app.models.users.html#app.models.users.UsersOrm"><code class="docutils literal notranslate"><span class="pre">UsersOrm</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="app.models.users.html#app.models.users.UsersOrm.email"><code class="docutils literal notranslate"><span class="pre">UsersOrm.email</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="app.models.users.html#app.models.users.UsersOrm.id"><code class="docutils literal notranslate"><span class="pre">UsersOrm.id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="app.models.users.html#app.models.users.UsersOrm.is_verified"><code class="docutils literal notranslate"><span class="pre">UsersOrm.is_verified</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="app.models.users.html#app.models.users.UsersOrm.password"><code class="docutils literal notranslate"><span class="pre">UsersOrm.password</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="module-app.models">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-app.models" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="app.models.Base">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">app.models.</span></span><span class="sig-name descname"><span class="pre">Base</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.models.Base" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DeclarativeBase</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.Base.metadata">
+<span class="sig-name descname"><span class="pre">metadata</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">MetaData</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">MetaData()</span></em><a class="headerlink" href="#app.models.Base.metadata" title="Link to this definition">¶</a></dt>
+<dd><p>Refers to the <code class="xref py py-class docutils literal notranslate"><span class="pre">_schema.MetaData</span></code> collection that will be used
+for new <code class="xref py py-class docutils literal notranslate"><span class="pre">_schema.Table</span></code> objects.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><span class="xref std std-ref">orm_declarative_metadata</span></p>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.Base.registry">
+<span class="sig-name descname"><span class="pre">registry</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">_RegistryType</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;sqlalchemy.orm.decl_api.registry</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#app.models.Base.registry" title="Link to this definition">¶</a></dt>
+<dd><p>Refers to the <code class="xref py py-class docutils literal notranslate"><span class="pre">_orm.registry</span></code> in use where new
+<code class="xref py py-class docutils literal notranslate"><span class="pre">_orm.Mapper</span></code> objects will be associated.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="app.models.CartItemsOrm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">app.models.</span></span><span class="sig-name descname"><span class="pre">CartItemsOrm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.models.CartItemsOrm" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="app.models.base.html#app.models.base.Base" title="app.models.base.Base"><code class="xref py py-class docutils literal notranslate"><span class="pre">Base</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.CartItemsOrm.id">
+<span class="sig-name descname"><span class="pre">id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Mapped</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#app.models.CartItemsOrm.id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.CartItemsOrm.product">
+<span class="sig-name descname"><span class="pre">product</span></span><a class="headerlink" href="#app.models.CartItemsOrm.product" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.CartItemsOrm.product_id">
+<span class="sig-name descname"><span class="pre">product_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Mapped</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#app.models.CartItemsOrm.product_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.CartItemsOrm.quantity">
+<span class="sig-name descname"><span class="pre">quantity</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Mapped</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#app.models.CartItemsOrm.quantity" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.CartItemsOrm.user_id">
+<span class="sig-name descname"><span class="pre">user_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Mapped</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#app.models.CartItemsOrm.user_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="app.models.CategoriesOrm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">app.models.</span></span><span class="sig-name descname"><span class="pre">CategoriesOrm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.models.CategoriesOrm" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="app.models.base.html#app.models.base.Base" title="app.models.base.Base"><code class="xref py py-class docutils literal notranslate"><span class="pre">Base</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.CategoriesOrm.id">
+<span class="sig-name descname"><span class="pre">id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Mapped</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#app.models.CategoriesOrm.id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.CategoriesOrm.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Mapped</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#app.models.CategoriesOrm.name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="app.models.CategoriesProductsOrm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">app.models.</span></span><span class="sig-name descname"><span class="pre">CategoriesProductsOrm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.models.CategoriesProductsOrm" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="app.models.base.html#app.models.base.Base" title="app.models.base.Base"><code class="xref py py-class docutils literal notranslate"><span class="pre">Base</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.CategoriesProductsOrm.category_id">
+<span class="sig-name descname"><span class="pre">category_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Mapped</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#app.models.CategoriesProductsOrm.category_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.CategoriesProductsOrm.id">
+<span class="sig-name descname"><span class="pre">id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Mapped</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#app.models.CategoriesProductsOrm.id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.CategoriesProductsOrm.product_id">
+<span class="sig-name descname"><span class="pre">product_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Mapped</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#app.models.CategoriesProductsOrm.product_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="app.models.ProductsOrm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">app.models.</span></span><span class="sig-name descname"><span class="pre">ProductsOrm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.models.ProductsOrm" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="app.models.base.html#app.models.base.Base" title="app.models.base.Base"><code class="xref py py-class docutils literal notranslate"><span class="pre">Base</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.ProductsOrm.cart_items">
+<span class="sig-name descname"><span class="pre">cart_items</span></span><a class="headerlink" href="#app.models.ProductsOrm.cart_items" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.ProductsOrm.composition">
+<span class="sig-name descname"><span class="pre">composition</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Mapped</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#app.models.ProductsOrm.composition" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.ProductsOrm.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Mapped</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#app.models.ProductsOrm.description" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.ProductsOrm.id">
+<span class="sig-name descname"><span class="pre">id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Mapped</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#app.models.ProductsOrm.id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.ProductsOrm.is_in_stock">
+<span class="sig-name descname"><span class="pre">is_in_stock</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Mapped</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#app.models.ProductsOrm.is_in_stock" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.ProductsOrm.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Mapped</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#app.models.ProductsOrm.name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.ProductsOrm.photo_url">
+<span class="sig-name descname"><span class="pre">photo_url</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Mapped</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#app.models.ProductsOrm.photo_url" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.ProductsOrm.price">
+<span class="sig-name descname"><span class="pre">price</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Mapped</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#app.models.ProductsOrm.price" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.ProductsOrm.rating">
+<span class="sig-name descname"><span class="pre">rating</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Mapped</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#app.models.ProductsOrm.rating" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.ProductsOrm.weight">
+<span class="sig-name descname"><span class="pre">weight</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Mapped</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#app.models.ProductsOrm.weight" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="app.models.UsersOrm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">app.models.</span></span><span class="sig-name descname"><span class="pre">UsersOrm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.models.UsersOrm" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="app.models.base.html#app.models.base.Base" title="app.models.base.Base"><code class="xref py py-class docutils literal notranslate"><span class="pre">Base</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.UsersOrm.email">
+<span class="sig-name descname"><span class="pre">email</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Mapped</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#app.models.UsersOrm.email" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.UsersOrm.id">
+<span class="sig-name descname"><span class="pre">id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Mapped</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#app.models.UsersOrm.id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.UsersOrm.is_verified">
+<span class="sig-name descname"><span class="pre">is_verified</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Mapped</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#app.models.UsersOrm.is_verified" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.models.UsersOrm.password">
+<span class="sig-name descname"><span class="pre">password</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Mapped</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#app.models.UsersOrm.password" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Unifood</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="app.html">app package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="app.html#subpackages">Subpackages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app.html#module-app">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="app.api.html">app.api package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="app.core.html">app.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="app.db.html">app.db package</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">app.models package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-app.models">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="app.schemas.html">app.schemas package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="app.services.html">app.services package</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="app.html">app package</a><ul>
+      <li>Previous: <a href="app.db.crud.html" title="previous chapter">app.db.crud module</a></li>
+      <li>Next: <a href="app.models.base.html" title="next chapter">app.models.base module</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2024, Unifood.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../_sources/source/app.models.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
