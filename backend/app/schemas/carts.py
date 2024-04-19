@@ -1,7 +1,5 @@
 from pydantic import BaseModel
 
-from .items import ProductModel
-
 
 class UserCart(BaseModel):
     id: int

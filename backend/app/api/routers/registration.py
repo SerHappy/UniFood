@@ -1,3 +1,6 @@
+from fastapi import APIRouter, BackgroundTasks
+from fastapi.exceptions import HTTPException
+
 from app.api.deps import SessionDep
 from app.db import crud
 from app.schemas.messages import Message
@@ -8,8 +11,6 @@ from app.services.mail import (
     send_email,
     verify_confirmation_token,
 )
-from fastapi import APIRouter, BackgroundTasks
-from fastapi.exceptions import HTTPException
 
 router = APIRouter()
 

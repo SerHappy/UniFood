@@ -5,10 +5,11 @@ from pathlib import Path
 from typing import Any
 
 from aiosmtplib import SMTP
-from app.core.config import settings
 from jinja2 import Template
 from jose import jwt
 from jose.exceptions import JWTError
+
+from app.core.config import settings
 
 
 def render_email_template(template_name: str, context: dict[str, Any] = {}) -> str:

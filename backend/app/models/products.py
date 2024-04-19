@@ -5,7 +5,6 @@ from .base import Base
 
 
 class ProductsOrm(Base):
-
     __tablename__ = "products"
 
     id: Mapped[int] = mapped_column(primary_key=True)

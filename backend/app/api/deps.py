@@ -1,17 +1,18 @@
 from collections.abc import AsyncGenerator
 from typing import Annotated
 
-from app.core import security
-from app.core.config import settings
-from app.core.db import Session
-from app.models.users import UsersOrm
-from app.schemas.tokens import AccessTokenPayload
-from fastapi import Depends, HTTPException, Request
+from fastapi import Depends, HTTPException
 from fastapi.security import OAuth2PasswordBearer
 from jose import jwt
 from jose.exceptions import JWTError
 from pydantic import ValidationError
 from sqlalchemy.ext.asyncio import AsyncSession
+
+from app.core import security
+from app.core.config import settings
+from app.core.db import Session
+from app.models.users import UsersOrm
+from app.schemas.tokens import AccessTokenPayload
 
 reusable_oauth2 = OAuth2PasswordBearer(
     tokenUrl=f"{settings.API_V1_STR}/auth/login/access-token"
@@ -40,7 +41,6 @@ async def get_db() -> AsyncGenerator[None, None]:
 
 
 SessionDep = Annotated[AsyncSession, Depends(get_db)]
-
 
 async def get_current_user(session: SessionDep, token: TokenDep) -> UsersOrm:
     """Зависимость для получения текущего пользователя.

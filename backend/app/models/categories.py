@@ -5,7 +5,6 @@ from .base import Base
 
 
 class CategoriesOrm(Base):
-
     __tablename__ = "categories"
 
     id: Mapped[int] = mapped_column(primary_key=True)

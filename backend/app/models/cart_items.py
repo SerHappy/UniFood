@@ -5,7 +5,6 @@ from .base import Base
 
 
 class CartItemsOrm(Base):
-
     __tablename__ = "cart_items"
 
     id: Mapped[int] = mapped_column(primary_key=True)

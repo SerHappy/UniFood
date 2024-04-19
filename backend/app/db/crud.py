@@ -1,8 +1,9 @@
+from sqlalchemy import select
+from sqlalchemy.ext.asyncio import AsyncSession
+
 from app.core.security import get_password_hash, verify_password
 from app.models import UsersOrm
 from app.schemas.users import UserCreate
-from sqlalchemy import select
-from sqlalchemy.ext.asyncio import AsyncSession
 
 
 async def get_user_by_email(session: AsyncSession, email: str) -> UsersOrm | None:

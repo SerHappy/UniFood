@@ -1,12 +1,13 @@
 from collections.abc import Sequence
 
+from fastapi import APIRouter, HTTPException
+from sqlalchemy import select
+from sqlalchemy.orm import joinedload
+
 from app.api.deps import CurrentUser, SessionDep
 from app.models import CartItemsOrm
 from app.models.products import ProductsOrm
 from app.schemas.carts import CartItem, CartItemAdd, CartItemRemove, UserCart
-from fastapi import APIRouter, HTTPException
-from sqlalchemy import select
-from sqlalchemy.orm import joinedload
 
 router = APIRouter()
 

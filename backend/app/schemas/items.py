@@ -7,9 +7,6 @@ class CategoryModel(BaseModel):
     products: list["ProductModel"] = []
 
 
-from pydantic import BaseModel
-
-
 class ProductModel(BaseModel):
     id: int
     name: str
