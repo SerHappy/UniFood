@@ -17,6 +17,16 @@ async def login_access_token(
     session: SessionDep,
     form_data: Annotated[OAuth2PasswordRequestForm, Depends()],
 ) -> AccessToken:
+    """Эндпоинт для генерации токена доступа.
+
+    :param session: Зависимость для работы с сессиями базы данных.
+    :type session: SessionDep
+    :param form_data: Зависимость для получения данных формы. Хранит в себе username и password.
+    :type form_data: Annotated[OAuth2PasswordRequestForm, Depends]
+    :raises HTTPException: Ошибка авторизации.
+    :return: Схему Pydantic с токеном доступа.
+    :rtype: AccessToken
+    """
     user = await crud.authenticate(
         session=session,
         email=form_data.username,

@@ -1,4 +1,4 @@
-from collections.abc import Generator
+from collections.abc import AsyncGenerator
 from typing import Annotated
 
 from app.core import security
@@ -25,7 +25,7 @@ TokenDep = Annotated[str, Depends(reusable_oauth2)]
 OptionalTokenDep = Annotated[str | None, Depends(optional_oauth2)]
 
 
-async def get_db() -> Generator[AsyncSession, None, None]:
+async def get_db() -> AsyncGenerator[None, None]:
     """
     Получает сессию базы данных для выполнения запросов.
 
@@ -33,7 +33,7 @@ async def get_db() -> Generator[AsyncSession, None, None]:
     предоставляет её в качестве генератора, и закрывает после завершения операций.
 
     :return: Экземпляр сессии SQLAlchemy для асинхронного использования
-    :rtype: Generator[AsyncSession, None, None]
+    :rtype: AsyncGenerator[None, None]
     """
     async with Session() as session:
         yield session
@@ -43,6 +43,16 @@ SessionDep = Annotated[AsyncSession, Depends(get_db)]
 
 
 async def get_current_user(session: SessionDep, token: TokenDep) -> UsersOrm:
+    """Зависимость для получения текущего пользователя.
+
+    :param session: Зависимость для работы с сессиями базы данных.
+    :type session: SessionDep
+    :param token: Зависимость для получения токена.
+    :type token: TokenDep
+    :raises invalid_credentials: Ошибка получения пользователя.
+    :return: Объект SQLAlchemy модели пользователя.
+    :rtype: UsersOrm
+    """
     invalid_credentials = HTTPException(
         status_code=401, detail="Could not validate credentials"
     )
@@ -70,6 +80,15 @@ async def get_optional_current_user(
     session: SessionDep,
     token: OptionalTokenDep,
 ) -> UsersOrm | None:
+    """Зависимость для получения текущего пользователя (опционально).
+
+    :param session: Зависимость для работы с сессиями базы данных.
+    :type session: SessionDep
+    :param token: Зависимость для получения токена доступа если он есть.
+    :type token: OptionalTokenDep
+    :return: Объект SQLAlchemy модели пользователя если он существует.
+    :rtype: UsersOrm | None
+    """
     if not token:
         return None
     try:

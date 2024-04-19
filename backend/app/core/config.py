@@ -7,6 +7,8 @@ from typing_extensions import Self
 
 
 class Settings(BaseSettings):
+    """Конфигурация приложения."""
+
     model_config = SettingsConfigDict(
         env_file=".env",
         env_file_encoding="utf-8",

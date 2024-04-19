@@ -1,3 +1,5 @@
+from collections.abc import Sequence
+
 from app.api.deps import CurrentUser, SessionDep
 from app.models import CartItemsOrm
 from app.models.products import ProductsOrm
@@ -14,7 +16,16 @@ async def get_user_cart(
     session: SessionDep,
     user: CurrentUser,
 ) -> UserCart:
-    cart_items_orm: list[CartItemsOrm] = (
+    """Эндпоинт для получения корзины пользователя.
+
+    :param session: Зависимость для работы с сессиями базы данных.
+    :type session: SessionDep
+    :param user: Зависимость для получения пользователя.
+    :type user: CurrentUser
+    :return: Схема Pydantic корзины пользователя.
+    :rtype: UserCart
+    """
+    cart_items_orm: Sequence[CartItemsOrm] = (
         (
             await session.execute(
                 select(CartItemsOrm)
@@ -54,6 +65,18 @@ async def add_to_cart(
     user: CurrentUser,
     item: CartItemAdd,
 ) -> UserCart:
+    """Эндпоинт для добавления продукта в корзину.
+
+    :param session: Зависимость для работы с сессиями базы данных.
+    :type session: SessionDep
+    :param user: Зависимость для получения пользователя.
+    :type user: CurrentUser
+    :param item: Схема Pydantic продукта для добавления в корзину.
+    :type item: CartItemAdd
+    :raises HTTPException: Ошибка добавления в корзину, если продукта нет в базе.
+    :return: Схема Pydantic корзины пользователя.
+    :rtype: UserCart
+    """
     product = await session.get(ProductsOrm, item.product_id)
     if not product:
         raise HTTPException(status_code=404, detail="Product not found")
@@ -76,7 +99,7 @@ async def add_to_cart(
         )
         session.add(product_in_cart)
 
-    cart_items_orm: list[CartItemsOrm] = (
+    cart_items_orm: Sequence[CartItemsOrm] = (
         (
             await session.execute(
                 select(CartItemsOrm)
@@ -114,8 +137,22 @@ async def add_to_cart(
 
 @router.post("/remove")
 async def remove_from_cart(
-    session: SessionDep, user: CurrentUser, product_to_remove: CartItemRemove
+    session: SessionDep,
+    user: CurrentUser,
+    product_to_remove: CartItemRemove,
 ) -> UserCart:
+    """Эндпоинт для уменьшения продукта в корзине.
+
+    :param session: Зависимость для работы с сессиями базы данных.
+    :type session: SessionDep
+    :param user: Зависимость для получения пользователя.
+    :type user: CurrentUser
+    :param product_to_remove: Схема Pydantic продукта для удаления из корзины.
+    :type product_to_remove: CartItemRemove
+    :raises HTTPException: Ошибка удаления из корзины, если продукта нет в корзине.
+    :return: Схема Pydantic корзины пользователя.
+    :rtype: UserCart
+    """
     product = await session.get(ProductsOrm, product_to_remove.product_id)
     if not product:
         raise HTTPException(status_code=404, detail="Product not found")
@@ -133,7 +170,7 @@ async def remove_from_cart(
         product_in_cart.quantity -= 1
     else:
         await session.delete(product_in_cart)
-    cart_items_orm: list[CartItemsOrm] = (
+    cart_items_orm: Sequence[CartItemsOrm] = (
         (
             await session.execute(
                 select(CartItemsOrm)
@@ -175,6 +212,18 @@ async def delete_from_cart(
     user: CurrentUser,
     product_to_remove: CartItemRemove,
 ) -> UserCart:
+    """Эндпоинт для удаления продукта из корзины.
+
+    :param session: Зависимость для работы с сессиями базы данных.
+    :type session: SessionDep
+    :param user: Зависимость для получения пользователя.
+    :type user: CurrentUser
+    :param product_to_remove: Схема Pydantic продукта для удаления из корзины.
+    :type product_to_remove: CartItemRemove
+    :raises HTTPException: Ошибка удаления из корзины, если продукта нет в базе.
+    :return: Схема Pydantic корзины пользователя.
+    :rtype: UserCart
+    """
     product = await session.get(ProductsOrm, product_to_remove.product_id)
     if not product:
         raise HTTPException(status_code=404, detail="Product not found")
@@ -189,7 +238,7 @@ async def delete_from_cart(
     if not product_in_cart:
         raise HTTPException(status_code=404, detail="Product not found in cart")
     await session.delete(product_in_cart)
-    cart_items_orm: list[CartItemsOrm] = (
+    cart_items_orm: Sequence[CartItemsOrm] = (
         (
             await session.execute(
                 select(CartItemsOrm)

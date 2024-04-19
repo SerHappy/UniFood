@@ -1,7 +1,9 @@
+from collections.abc import Sequence
+
 from app.api.deps import CurrentOptionalUser, CurrentUser, SessionDep
 from app.models import CategoriesOrm, CategoriesProductsOrm, ProductsOrm
 from app.models.cart_items import CartItemsOrm
-from app.schemas.carts import CartItemAdd
+from app.schemas.carts import CartItemAdd, CartItemRemove
 from app.schemas.items import CategoryModel, ProductInfo, ProductModel
 from fastapi import APIRouter, HTTPException
 from sqlalchemy import select
@@ -15,8 +17,19 @@ async def read_categories_with_products(
     session: SessionDep,
     user: CurrentOptionalUser,
 ) -> list[CategoryModel]:
-    query = select(CategoriesOrm)
-    categories: list[CategoriesOrm] = (await session.execute(query)).scalars().all()
+    """Эндпоинт для получения категорий с продуктами.
+
+    :param session: Зависимость для работы с сессиями базы данных.
+    :type session: SessionDep
+    :param user: Зависимость для получения пользователя.
+    :type user: CurrentOptionalUser
+    :return: Список Pydantic схем категорий с продуктами.
+    :rtype: list[CategoryModel]
+    """
+    select_query = select(CategoriesOrm)
+    categories: Sequence[CategoriesOrm] = (
+        (await session.execute(select_query)).scalars().all()
+    )
     categories_with_products = []
     for category in categories:
         query = (
@@ -27,10 +40,10 @@ async def read_categories_with_products(
             )
             .filter_by(category_id=category.id)
         )
-        products: list[ProductsOrm] = (await session.execute(query)).scalars().all()
+        products: Sequence[ProductsOrm] = (await session.execute(query)).scalars().all()
 
         if user:
-            cart_items_orm: list[CartItemsOrm] = (
+            cart_items_orm: Sequence[CartItemsOrm] = (
                 (
                     await session.execute(
                         select(CartItemsOrm)
@@ -60,6 +73,16 @@ async def read_categories_with_products(
 
 @router.get("/info/{product_id}", response_model=ProductInfo)
 async def product_info(product_id: int, session: SessionDep) -> ProductInfo:
+    """Эндпоинт для получения информации о продукте.
+
+    :param product_id: Идентификатор продукта.
+    :type product_id: int
+    :param session: Зависимость для работы с сессиями базы данных.
+    :type session: SessionDep
+    :raises HTTPException: Ошибки при получении информации о продукте.
+    :return: Схема Pydantic с информацией о продукте.
+    :rtype: ProductInfo
+    """
     product = await session.get(ProductsOrm, product_id)
     if not product:
         raise HTTPException(status_code=404, detail="Product not found")
@@ -72,6 +95,18 @@ async def add_item_to_cart(
     user: CurrentUser,
     item: CartItemAdd,
 ) -> ProductModel:
+    """Эндпоинт для добавления продукта в корзину.
+
+    :param session: Зависимость для работы с сессиями базы данных.
+    :type session: SessionDep
+    :param user: Зависимость для получения пользователя.
+    :type user: CurrentUser
+    :param item: Схема Pydantic продукта для добавления в корзину.
+    :type item: CartItemAdd
+    :raises HTTPException: Ошибка добавления в корзину, если продукта нет в базе.
+    :return: Схема Pydantic продукта.
+    :rtype: ProductModel
+    """
     product = await session.get(ProductsOrm, item.product_id)
     if not product:
         raise HTTPException(status_code=404, detail="Product not found")
@@ -94,17 +129,29 @@ async def add_item_to_cart(
         )
         session.add(product_in_cart)
 
-    product = ProductModel(**product.__dict__, in_cart=product_in_cart.quantity)
+    product_model = ProductModel(**product.__dict__, in_cart=product_in_cart.quantity)  # type: ignore
     await session.commit()
-    return product
+    return product_model
 
 
 @router.post("/remove")
 async def remove_item_from_cart(
     session: SessionDep,
     user: CurrentUser,
-    item: CartItemAdd,
+    item: CartItemRemove,
 ) -> ProductModel:
+    """Эндпоинт для удаления продукта из корзины.
+
+    :param session: Зависимость для работы с сессиями базы данных.
+    :type session: SessionDep
+    :param user: Зависимость для получения пользователя.
+    :type user: CurrentUser
+    :param item: Схема Pydantic продукта для удаления из корзины.
+    :type item: CartItemRemove
+    :raises HTTPException: Ошибка удаления из корзины, если продукта нет в базе.
+    :return: Схема Pydantic продукта.
+    :rtype: ProductModel
+    """
     product = await session.get(ProductsOrm, item.product_id)
     if not product:
         raise HTTPException(status_code=404, detail="Product not found")
@@ -128,6 +175,6 @@ async def remove_item_from_cart(
         await session.delete(product_in_cart)
         in_cart = 0
 
-    product = ProductModel(**product.__dict__, in_cart=in_cart)
+    product_model = ProductModel(**product.__dict__, in_cart=in_cart)  # type: ignore
     await session.commit()
-    return product
+    return product_model
