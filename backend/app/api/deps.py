@@ -42,6 +42,7 @@ async def get_db() -> AsyncGenerator[None, None]:
 
 SessionDep = Annotated[AsyncSession, Depends(get_db)]
 
+
 async def get_current_user(session: SessionDep, token: TokenDep) -> UsersOrm:
     """Зависимость для получения текущего пользователя.
 

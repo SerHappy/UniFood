@@ -57,6 +57,9 @@ class Settings(BaseSettings):
     EMAIL_VERIFICATION_TOKEN_EXPIRE_MINUTES: int = 10
     EMAIL_TEST_USER: EmailStr = "test@example.com"
 
+    YOOKASSA_ACCOUNT_ID: int
+    YOOKASSA_SECRET_KEY: str
+
     @model_validator(mode="after")
     def _set_default_emails_from(self) -> Self:
         if not self.EMAILS_FROM_NAME:

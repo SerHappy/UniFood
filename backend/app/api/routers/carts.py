@@ -1,8 +1,11 @@
+import uuid
 from collections.abc import Sequence
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, status
+from fastapi.responses import RedirectResponse
 from sqlalchemy import select
 from sqlalchemy.orm import joinedload
+from yookassa import Payment
 
 from app.api.deps import CurrentUser, SessionDep
 from app.models import CartItemsOrm
@@ -273,3 +276,64 @@ async def delete_from_cart(
     )
     await session.commit()
     return cart
+
+
+@router.post("/checkout")
+async def checkout(
+    session: SessionDep,
+    user: CurrentUser,
+):
+    cart_items_orm: Sequence[CartItemsOrm] = (
+        (
+            await session.execute(
+                select(CartItemsOrm)
+                .options(joinedload(CartItemsOrm.product))
+                .where(CartItemsOrm.user_id == user.id)
+            )
+        )
+        .scalars()
+        .all()
+    )
+
+    items = [
+        CartItem(
+            product_id=cart_item_orm.product.id,
+            name=cart_item_orm.product.name,
+            price_per_one=cart_item_orm.product.price,
+            weight=cart_item_orm.product.weight,
+            full_price=cart_item_orm.product.price * cart_item_orm.quantity,
+            photo_url=cart_item_orm.product.photo_url,
+            quantity=cart_item_orm.quantity,
+        )
+        for cart_item_orm in cart_items_orm
+    ]
+
+    total = sum(item.full_price for item in items)
+    discount = 0
+    to_pay = total - discount
+
+    cart = UserCart(
+        id=user.id,
+        items=items,
+        total=total,
+        discount=discount,
+        to_pay=to_pay,
+    )
+
+    payment = Payment.create(
+        {
+            "amount": {"value": cart.to_pay, "currency": "RUB"},
+            "confirmation": {
+                "type": "redirect",
+                "return_url": "https://www.example.com/return_url",
+            },
+            "capture": True,
+            "description": "Заказ №1",
+        },
+        uuid.uuid4(),
+    )
+
+    return RedirectResponse(
+        url=payment.confirmation.confirmation_url,  # type: ignore
+        status_code=status.HTTP_303_SEE_OTHER,
+    )

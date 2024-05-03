@@ -34,6 +34,8 @@ services:
       - POSTGRES_DB=${POSTGRES_DB}
       - POSTGRES_USER=${POSTGRES_USER?Variable not set}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD?Variable not set}
+      - YOOKASSA_ACCOUNT_ID=${YOOKASSA_ACCOUNT_ID?Variable not set}
+      - YOOKASSA_SECRET_KEY=${YOOKASSA_SECRET_KEY?Variable not set}
     volumes:
       - ./backend/app:/app/app
     build:

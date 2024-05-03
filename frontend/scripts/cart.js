@@ -21,6 +21,23 @@ async function loadCart() {
     } catch (error) {
         console.error('Ошибка при загрузке данных корзины: ', error.message);
     }
+    document.querySelector('.submit-order').addEventListener('click', function () {
+        fetch('http://127.0.0.1:8000/api/v1/cart/checkout', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
+            },
+            body: JSON.stringify({
+            })
+        }).then(response => {
+            if (response.status === 303) {
+                window.location.href = response.headers.get('Location');
+            }
+        }).catch(error => {
+            console.error('Ошибка:', error);
+        });
+    });
 }
 
 function renderCart(cart) {
@@ -172,7 +189,7 @@ function createOrderParams() {
         </div>
         <label for="comments">Комментарий</label>
         <textarea id="comments" rows="4"></textarea>
-        <button class="submit">Оформить заказ</button>
+        <button class="submit submit-order">Оформить заказ</button>
     `;
     return orderParams;
 }
